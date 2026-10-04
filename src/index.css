@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", "Instrument Serif", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-midnight: #071A33;
+  --color-deepnavy: #0D2947;
+  --color-cobalt: #164A78;
+  --color-softblue: #E9F0F6;
+  --color-ivory: #F7F5F0;
+  --color-charcoal: #1C2630;
+  --color-gold: #C4A56A;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color: #1C2630;
+    background-color: #F7F5F0;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}

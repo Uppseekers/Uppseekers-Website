@@ -1,0 +1,510 @@
+{
+  "adminPassword": "uppseekers2026",
+  "stats": {
+    "totalAdmissions": 147,
+    "topInstitutions": 31,
+    "countries": 8,
+    "yearsExperience": "10+"
+  },
+  "universities": [
+    {
+      "id": "uni-1",
+      "name": "Stanford University",
+      "country": "USA",
+      "city": "Stanford, CA",
+      "admissionsCount": 3,
+      "notableCourses": ["Computer Science", "Economics", "Symbolic Systems"]
+    },
+    {
+      "id": "uni-2",
+      "name": "California Institute of Technology (Caltech)",
+      "country": "USA",
+      "city": "Pasadena, CA",
+      "admissionsCount": 2,
+      "notableCourses": ["Computer Science", "Electrical Engineering", "Applied Physics"]
+    },
+    {
+      "id": "uni-3",
+      "name": "UCL (University College London)",
+      "country": "UK",
+      "city": "London",
+      "admissionsCount": 11,
+      "notableCourses": ["Computer Science", "Economics", "Architecture", "Biomedical Sciences"]
+    },
+    {
+      "id": "uni-4",
+      "name": "The University of Hong Kong (HKU)",
+      "country": "Hong Kong",
+      "city": "Hong Kong",
+      "admissionsCount": 6,
+      "notableCourses": ["Computer Science", "Data Science & AI", "Quantitative Finance"]
+    },
+    {
+      "id": "uni-5",
+      "name": "University of Chicago",
+      "country": "USA",
+      "city": "Chicago, IL",
+      "admissionsCount": 3,
+      "notableCourses": ["Economics", "Computer Science", "Mathematics & Statistics"]
+    },
+    {
+      "id": "uni-6",
+      "name": "Cornell University",
+      "country": "USA",
+      "city": "Ithaca, NY",
+      "admissionsCount": 4,
+      "notableCourses": ["Computer Science", "Mechanical Engineering", "Applied Economics & Management"]
+    },
+    {
+      "id": "uni-7",
+      "name": "Brown University",
+      "country": "USA",
+      "city": "Providence, RI",
+      "admissionsCount": 2,
+      "notableCourses": ["Cognitive Neuroscience", "Applied Mathematics-Economics"]
+    },
+    {
+      "id": "uni-8",
+      "name": "University of Pennsylvania",
+      "country": "USA",
+      "city": "Philadelphia, PA",
+      "admissionsCount": 3,
+      "notableCourses": ["Economics", "Bioengineering", "Philosophy, Politics & Economics"]
+    },
+    {
+      "id": "uni-9",
+      "name": "Duke University",
+      "country": "USA",
+      "city": "Durham, NC",
+      "admissionsCount": 3,
+      "notableCourses": ["Public Policy", "Biomedical Engineering", "Economics"]
+    },
+    {
+      "id": "uni-10",
+      "name": "University of Cambridge",
+      "country": "UK",
+      "city": "Cambridge",
+      "admissionsCount": 2,
+      "notableCourses": ["Natural Sciences", "Economics"]
+    },
+    {
+      "id": "uni-11",
+      "name": "Imperial College London",
+      "country": "UK",
+      "city": "London",
+      "admissionsCount": 6,
+      "notableCourses": ["Computing", "Aeronautical Engineering", "Electrical Engineering"]
+    },
+    {
+      "id": "uni-12",
+      "name": "London School of Economics (LSE)",
+      "country": "UK",
+      "city": "London",
+      "admissionsCount": 4,
+      "notableCourses": ["Economics", "Management", "Politics and International Relations"]
+    },
+    {
+      "id": "uni-13",
+      "name": "National University of Singapore (NUS)",
+      "country": "Singapore",
+      "city": "Singapore",
+      "admissionsCount": 7,
+      "notableCourses": ["Computer Science", "Data Science & Analytics", "Business AI Systems"]
+    },
+    {
+      "id": "uni-14",
+      "name": "ETH Zurich",
+      "country": "Europe",
+      "city": "Zurich",
+      "admissionsCount": 2,
+      "notableCourses": ["Mechanical Engineering", "Computational Science"]
+    },
+    {
+      "id": "uni-15",
+      "name": "University of Michigan",
+      "country": "USA",
+      "city": "Ann Arbor, MI",
+      "admissionsCount": 8,
+      "notableCourses": ["Computer Science Engineering", "Business (Ross)", "Aerospace Engineering"]
+    },
+    {
+      "id": "uni-16",
+      "name": "University of Edinburgh",
+      "country": "UK",
+      "city": "Edinburgh",
+      "admissionsCount": 9,
+      "notableCourses": ["Artificial Intelligence & CS", "International Relations", "Economics"]
+    },
+    {
+      "id": "uni-17",
+      "name": "King's College London",
+      "country": "UK",
+      "city": "London",
+      "admissionsCount": 10,
+      "notableCourses": ["Business Management", "Psychology", "Computer Science", "Law"]
+    },
+    {
+      "id": "uni-18",
+      "name": "New York University (NYU)",
+      "country": "USA",
+      "city": "New York, NY",
+      "admissionsCount": 7,
+      "notableCourses": ["Finance & Economics", "Data Science", "Interactive Media Arts"]
+    },
+    {
+      "id": "uni-19",
+      "name": "University of Washington",
+      "country": "USA",
+      "city": "Seattle, WA",
+      "admissionsCount": 6,
+      "notableCourses": ["Computer Science", "Informatics", "Bioengineering"]
+    },
+    {
+      "id": "uni-20",
+      "name": "Purdue University",
+      "country": "USA",
+      "city": "West Lafayette, IN",
+      "admissionsCount": 8,
+      "notableCourses": ["First-Year Engineering", "Computer Science", "Aerospace Engineering"]
+    },
+    {
+      "id": "uni-21",
+      "name": "University of Toronto",
+      "country": "Canada",
+      "city": "Toronto, ON",
+      "admissionsCount": 9,
+      "notableCourses": ["Rotman Commerce", "Computer Science", "Engineering Science"]
+    },
+    {
+      "id": "uni-22",
+      "name": "University of British Columbia (UBC)",
+      "country": "Canada",
+      "city": "Vancouver, BC",
+      "admissionsCount": 7,
+      "notableCourses": ["Sauder Commerce", "Applied Science", "Environmental Sciences"]
+    },
+    {
+      "id": "uni-23",
+      "name": "McGill University",
+      "country": "Canada",
+      "city": "Montreal, QC",
+      "admissionsCount": 5,
+      "notableCourses": ["Desautels Management", "Software Engineering", "Neuroscience"]
+    },
+    {
+      "id": "uni-24",
+      "name": "HKUST",
+      "country": "Hong Kong",
+      "city": "Hong Kong",
+      "admissionsCount": 5,
+      "notableCourses": ["Quantitative Finance", "Engineering", "Global Business"]
+    },
+    {
+      "id": "uni-25",
+      "name": "University of Melbourne",
+      "country": "Australia",
+      "city": "Melbourne",
+      "admissionsCount": 5,
+      "notableCourses": ["Commerce", "Biomedicine", "Design"]
+    },
+    {
+      "id": "uni-26",
+      "name": "University of Sydney",
+      "country": "Australia",
+      "city": "Sydney",
+      "admissionsCount": 4,
+      "notableCourses": ["Economics", "Advanced Computing", "Law & Commerce"]
+    },
+    {
+      "id": "uni-27",
+      "name": "Monash University",
+      "country": "Australia",
+      "city": "Melbourne",
+      "admissionsCount": 3,
+      "notableCourses": ["Engineering", "Pharmaceutical Science"]
+    },
+    {
+      "id": "uni-28",
+      "name": "Technical University of Munich (TUM)",
+      "country": "Germany",
+      "city": "Munich",
+      "admissionsCount": 3,
+      "notableCourses": ["Management & Technology", "Mechanical Engineering"]
+    }
+  ],
+  "profileActivities": [
+    {
+      "id": "act-1",
+      "title": "Autonomous Systems & Applied Software Builds",
+      "category": "Engineering & Computer Science",
+      "description": "Building functional, end-to-end computational and robotic platforms rather than passive classroom theory.",
+      "highlights": [
+        "FIRST Robotics Championship hardware architecture and autonomous navigation algorithms",
+        "Nilos: Autonomous Nile-cleaning robot built with recycled materials and custom PCB integration",
+        "Driver safety vision systems with real-time drowsiness detection and onboard computer vision inference"
+      ],
+      "studentInvolvement": "18+ Admitted Students"
+    },
+    {
+      "id": "act-2",
+      "title": "Industry Internships & Technical Apprenticeships",
+      "category": "Professional Immersion",
+      "description": "Testing academic theory in production corporate environments across software, finance, and industrial engineering before university.",
+      "highlights": [
+        "IBM Z Xplore mainframe computing and quantitative data pipeline development",
+        "Software Engineering internships building Retrieval-Augmented Generation (RAG) platforms",
+        "Data analysis and automated dashboard pipelines at global industrial engineering firms"
+      ],
+      "studentInvolvement": "24+ Admitted Students"
+    },
+    {
+      "id": "act-3",
+      "title": "Competitive Olympiads & International Distinctions",
+      "category": "Academic Honors",
+      "description": "Disciplined preparation for high-rigour subject challenges demonstrating top-percentile mastery.",
+      "highlights": [
+        "UK Mathematics Trust (UKMT) Senior Maths Challenge Gold Awards",
+        "CBSE City Toppers & JEE Advanced top-tier percentiles (99.72+ percentile)",
+        "National Merit Scholar distinctions and university research scholarship awards"
+      ],
+      "studentInvolvement": "30+ Admitted Students"
+    },
+    {
+      "id": "act-4",
+      "title": "Selective Summer Academies & Lab Fellowships",
+      "category": "Scholarly Preparation",
+      "description": "Participating in highly selective, fully funded summer academies focused on intensive research methodology.",
+      "highlights": [
+        "Carnegie Mellon University SAMS (Summer Academy for Math and Science ~7% admit rate)",
+        "MIT Beaver Works Summer Institute (Semiconductor & ASIC design implementation)",
+        "Boston University RISE cross-institutional electrical engineering research"
+      ],
+      "studentInvolvement": "15+ Admitted Students"
+    },
+    {
+      "id": "act-5",
+      "title": "Student-Led Educational & Community Initiatives",
+      "category": "Leadership & Impact",
+      "description": "Initiatives founded and scaled by students to mentor younger peers and solve local challenges.",
+      "highlights": [
+        "Peer mentorship initiatives tutoring 150+ students in GCSE Maths & Computer Science",
+        "Non-profit educational resource platforms providing open STEM curricula",
+        "Environmental sustainability and digital literacy outreach programs"
+      ],
+      "studentInvolvement": "22+ Admitted Students"
+    }
+  ],
+  "researchTopics": [
+    {
+      "id": "res-1",
+      "title": "Applied Cryptography & Zero-Knowledge Verification",
+      "field": "Computer Science & Pure Mathematics",
+      "description": "Investigating cryptographic primitives, hashing structures, and computational zero-knowledge proofs under university faculty mentorship.",
+      "methodology": "Algorithmic complexity analysis, Python/C++ implementations, peer-reviewed abstract synthesis.",
+      "admittedUniversities": ["Stanford University", "UCL", "Caltech"]
+    },
+    {
+      "id": "res-2",
+      "title": "Quantitative Financial Modeling & Congressional Performance",
+      "field": "Computational Economics & Data Science",
+      "description": "Analyzing whether political officials outperform S&P 500 benchmarks using public trading datasets and automated API pipelines.",
+      "methodology": "Quiver Quant API, yFinance time-series regression, statistical significance testing.",
+      "admittedUniversities": ["UCL", "University of Chicago", "Cornell University"]
+    },
+    {
+      "id": "res-3",
+      "title": "Astrophysics: Mass Distribution & Galactic Rotational Curves",
+      "field": "Astrophysics & Applied Mathematics",
+      "description": "Modeling stellar rotational velocities in the Milky Way to evaluate mass distribution correlations in the observable universe.",
+      "methodology": "Astrophysical datasets, rotational curve fitting, published in the Journal of Student Research.",
+      "admittedUniversities": ["University of Chicago", "Brown University", "Caltech"]
+    },
+    {
+      "id": "res-4",
+      "title": "Semiconductor Architecture & ASIC Hardware Prototyping",
+      "field": "Electrical Engineering & Microelectronics",
+      "description": "Investigating chip architecture, PCB/ASIC design trade-offs, and microelectronic modeling.",
+      "methodology": "Verilog/VHDL simulations, FPGA synthesis, cross-institutional research (BU RISE & MIT BWSI).",
+      "admittedUniversities": ["Caltech", "Imperial College London", "Cornell University"]
+    },
+    {
+      "id": "res-5",
+      "title": "Autonomous Robotics & Computer Vision for Driver Safety",
+      "field": "Robotics & Artificial Intelligence",
+      "description": "Real-time computer vision inference on low-power edge hardware to detect micro-sleep patterns and improve vehicle safety.",
+      "methodology": "OpenCV, lightweight convolutional networks, embedded microcontroller sensor integration.",
+      "admittedUniversities": ["University of Chicago", "National University of Singapore", "ETH Zurich"]
+    }
+  ],
+  "counsellors": [
+    {
+      "id": "coun-1",
+      "name": "Manika P",
+      "role": "Senior Admissions Counsellor & Undergraduate Strategist",
+      "experience": "10+ Years in International Admissions Advisory",
+      "certifications": [
+        "UCLA Extension Certificate in College Counseling",
+        "Certified International Educational Planner"
+      ],
+      "specialisation": "US Holistic Admissions, Ivy League & Top 20 Universities, Multi-Year Profile Architecture",
+      "countries": ["USA", "Canada", "Singapore"],
+      "philosophy": "Every student has an authentic narrative waiting to be discovered. Our role is to build the structure, intellectual depth, and clarity that allows that narrative to emerge naturally over time.",
+      "bio": "Manika has guided ambitious students from Class 8 onwards across subject selection, competitive profile building, independent research, and admissions strategy for leading American and global institutions."
+    },
+    {
+      "id": "coun-2",
+      "name": "Palak S",
+      "role": "Senior Admissions Counsellor & Academic Direction Advisor",
+      "experience": "10+ Years in International University Advisory",
+      "certifications": [
+        "British Council Certified UK Education Advisor",
+        "Certified Career & Admissions Strategist"
+      ],
+      "specialisation": "UK (Oxbridge, Russell Group), Singapore, Hong Kong & European University Admissions",
+      "countries": ["UK", "Europe", "Hong Kong", "Australia"],
+      "philosophy": "Super-curricular engagement is not about quantity; it is about how deeply and rigorously a student explores their chosen academic field before day one of university.",
+      "bio": "Palak specialises in course-focused international admissions, working with students on academic alignment, admissions assessments, super-curricular writing, and tailored international roadmaps."
+    },
+    {
+      "id": "coun-3",
+      "name": "Rucha Tawde",
+      "role": "Senior Admissions Counsellor & Global Placements Specialist",
+      "experience": "8+ Years of International Counselling Experience",
+      "certifications": [
+        "Certified by a Leading British Counselling Organisation",
+        "100+ Students Successfully Placed Worldwide"
+      ],
+      "specialisation": "International Undergraduate Strategy, UK, Canada, Australia & European Admissions",
+      "countries": ["UK", "Canada", "Australia", "Europe", "USA"],
+      "philosophy": "Guiding students to discover their authentic academic direction and translating ambition into successful global university admissions with structured, personalised mentorship.",
+      "bio": "Rucha brings over 8 years of international counselling experience and is certified by a leading British counselling organisation, having successfully placed 100+ students across top global universities."
+    }
+  ],
+  "counsellorsExpansionNote": {
+    "lead": "+",
+    "title": "And many more",
+    "description": "A growing team of certified specialists across US, UK, Canada, Australia & European admissions."
+  },
+  "blogs": [
+    {
+      "id": "art-1",
+      "title": "Why Elite University Admissions Begin Three Years Before the Common App",
+      "subtitle": "The compounding advantage of early intellectual exploration over senior-year panic.",
+      "category": "Admissions Strategy",
+      "readTime": "6 min read",
+      "date": "October 2026",
+      "author": "Manika P",
+      "authorRole": "Senior Admissions Counsellor",
+      "featured": true,
+      "excerpt": "When families wait until Class 12 to consider university admissions, they find themselves competing on presentation rather than substance. Here is why the world’s most competitive universities look for multi-year intellectual trajectories.",
+      "keyTakeaways": [
+        "Admissions committees spot last-minute resume padding within thirty seconds.",
+        "Class 8–10 provides low-stakes freedom to test genuine curiosities before curriculum lock-in.",
+        "A cohesive multi-year narrative cannot be manufactured in a three-month summer."
+      ],
+      "bodyParagraphs": [
+        "In the competitive landscape of international undergraduate admissions, timing is often the single most misunderstood variable. Most families view the college application as a senior-year project—a flurry of essay drafting, standardized testing, and resume formatting undertaken in the autumn of Class 12.",
+        "Yet when admissions deans at institutions like Stanford, Oxford, or UPenn review a candidate’s portfolio, they are not primarily looking for literary polish. They are looking for evidence of sustained, organic intellectual curiosity. They want to know what a student did when no one was grading them.",
+        "Beginning the journey in Class 8, 9, or 10 replaces panic with intellectual calm. When students explore astrophysics, machine learning, or macroeconomics early, their choices evolve from genuine interest rather than tactical desperation."
+      ]
+    },
+    {
+      "id": "art-2",
+      "title": "Super-Curriculars vs. Extracurriculars: What British & European Universities Actually Value",
+      "subtitle": "Understanding the fundamental divergence between US holistic admissions and UK subject-first criteria.",
+      "category": "Academic Profile",
+      "readTime": "5 min read",
+      "date": "September 2026",
+      "author": "Palak S",
+      "authorRole": "Senior Admissions Counsellor",
+      "featured": false,
+      "excerpt": "Applying to Oxford, Cambridge, Imperial, or UCL requires an entirely different mindset than applying to the Ivy League. Here is how super-curricular depth differs from general extracurricular participation.",
+      "keyTakeaways": [
+        "UK universities prioritize subject-specific exploration over well-rounded versatility.",
+        "Super-curricular reading must go beyond standard A-Level or IB syllabi.",
+        "Demonstrating independent problem-solving carries more weight than leadership titles."
+      ],
+      "bodyParagraphs": [
+        "A common pitfall for ambitious international applicants is applying US holistic criteria to British or European university applications. While an American university may appreciate varsity athletics and musical theater, a Cambridge admissions tutor assessing an Economics applicant cares almost exclusively about mathematical aptitude and economic reasoning.",
+        "Super-curricular activities are those that take a student deeper into their chosen academic subject: advanced problem sets, reading university seminar papers, competing in olympiads, and conducting primary research.",
+        "By grounding preparation in super-curricular depth from Class 10 onward, students enter the UCAS application season with concrete academic substance."
+      ]
+    },
+    {
+      "id": "art-3",
+      "title": "The Strategic Architecture of High School Research",
+      "subtitle": "How ambitious students formulate genuine scholarly questions without resorting to predatory pay-to-publish programs.",
+      "category": "Research & Inquiry",
+      "readTime": "7 min read",
+      "date": "August 2026",
+      "author": "Rucha Tawde",
+      "authorRole": "Senior Admissions Counsellor",
+      "featured": false,
+      "excerpt": "Admissions officers are increasingly skeptical of dubious pay-to-publish high school papers. Here is how authentic scholarly inquiry works under genuine academic mentorship.",
+      "keyTakeaways": [
+        "Methodological honesty is respected far more than claimed breakthroughs in predatory journals.",
+        "The best high school research begins with narrow, well-defined curiosity.",
+        "The ability to defend and explain the methodology matters as much as the paper itself."
+      ],
+      "bodyParagraphs": [
+        "In recent years, the undergraduate admissions market has been inundated with programs promising high school students guaranteed publication in international journals for high fees. Admissions offices at leading universities are acutely aware of these arrangements and discount them heavily.",
+        "Genuine research at the high school level is about learning how knowledge is constructed: formulating a testable hypothesis, gathering reliable data, and acknowledging limitations with scholarly humility.",
+        "When an advisor guides a student through authentic literature reviews and experimental design, the student gains not just a line on a resume, but the intellectual maturity to thrive in top university seminars."
+      ]
+    }
+  ],
+  "pagesContent": {
+    "home": {
+      "heroEyebrow": "UNDERGRADUATE ADMISSIONS & STUDENT DEVELOPMENT · CLASS 8 TO 12",
+      "heroHeadline": "THE JOURNEY TO A GREAT UNIVERSITY STARTS LONG BEFORE THE APPLICATION.",
+      "heroSubhead": "We work with students from Class 8 onwards to discover their strengths, build genuine academic depth, and navigate admissions to the world's leading universities.",
+      "statsTag": "DOCUMENTED STUDENT DEVELOPMENT"
+    },
+    "approach": {
+      "eyebrow": "OUR CORE METHODOLOGY",
+      "headline": "BACKWARD ENGINEERING FROM UNIVERSITY EXPECTATIONS.",
+      "subhead": "Beginning in Class 8, 9, or 10 replaces senior-year panic with calm, multi-year intellectual maturation."
+    },
+    "admissions": {
+      "eyebrow": "STRATEGIC ADMISSIONS COUNSELLING",
+      "headline": "EVERY APPLICATION IS THE PRODUCT OF YEARS OF DECISIONS.",
+      "subhead": "Navigating US holistic admissions, UK course-first evaluations, and global university requirements with clarity and experience."
+    },
+    "profileBuilding": {
+      "eyebrow": "AUTHENTIC STUDENT DEVELOPMENT",
+      "headline": "BUILD A PROFILE THAT FEELS LIKE THE STUDENT.",
+      "subhead": "The goal isn't to collect activities. The goal is to develop depth around genuine intellectual and creative interests."
+    },
+    "research": {
+      "eyebrow": "SCHOLARLY MENTORSHIP",
+      "headline": "RESEARCH STARTS WITH CURIOSITY.",
+      "subhead": "Students work with experienced researchers and PhD scholars to explore rigorous questions beyond the school curriculum."
+    },
+    "workExperience": {
+      "eyebrow": "BEYOND THE CLASSROOM",
+      "headline": "EXPERIENCE THE WORLD YOU'RE PREPARING TO ENTER.",
+      "subhead": "Work experience is not about collecting a corporate logo. It is about testing academic interests in real professional environments."
+    },
+    "sat": {
+      "eyebrow": "STANDARDIZED TESTING EXCELLENCE",
+      "headline": "PREPARE WITH A PLAN. PRACTISE WITH PURPOSE.",
+      "subhead": "Diagnostic evaluations, live concept classes, and targeted Digital SAT prep integrated directly into the admissions timeline."
+    },
+    "results": {
+      "eyebrow": "VERIFIED STUDENT OUTCOMES",
+      "headline": "WHERE OUR STUDENTS HAVE BEEN ADMITTED.",
+      "subhead": "Explore verified university admissions, student numbers, key profile building tracks, and research inquiry topics across leading global universities."
+    },
+    "counsellors": {
+      "eyebrow": "SENIOR ADVISORY TEAM · EXPERIENCED COUNSELLORS",
+      "headline": "EXPERIENCE THAT GUIDES BETTER DECISIONS.",
+      "subhead": "Our senior counsellors bring 8+ to 10+ years of international admissions advisory, verified UCLA & leading British counselling certifications, with 100+ students successfully placed worldwide."
+    },
+    "about": {
+      "eyebrow": "ABOUT UPPSEEKERS",
+      "headline": "WE BELIEVE GREAT ADMISSIONS BEGIN WITH GREAT PREPARATION.",
+      "subhead": "Uppseekers was founded to bridge the gap between high school classrooms and the intellectual expectations of the world's leading universities."
+    }
+  },
+  "leads": []
+}

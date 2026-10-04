@@ -1,0 +1,8 @@
+{
+  "name": "Uppseekers — Undergraduate Admissions & Student Development",
+  "description": "Uppseekers is a premier international undergraduate admissions advisory working with students from Class 8 to 12 on university strategy, profile building, research mentorship, work experience, and SAT preparation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
