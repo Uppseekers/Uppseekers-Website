@@ -4,6 +4,7 @@ import {
   DestinationCountry,
   SHEET_STUDENTS_DATA,
   IMAGES,
+  OFFICIAL_ADMISSIONS_COUNT,
 } from '../data/uppseekersData';
 import { EditorialImage, FinalCTA } from '../components/SharedComponents';
 import { ArrowRight } from 'lucide-react';
@@ -143,7 +144,7 @@ export const ApproachPage: React.FC<PageProps> = ({ onNavigate }) => {
                 onClick={() => onNavigate('/results')}
                 className="inline-flex items-center gap-2 border border-white/25 px-7 py-4 text-[13px] font-medium tracking-[0.08em] text-[#FFFFFF] uppercase whitespace-nowrap hover:border-white"
               >
-                <span>VIEW 133+ ADMISSIONS</span>
+                <span>VIEW {OFFICIAL_ADMISSIONS_COUNT}+ ADMISSIONS</span>
               </button>
             </div>
           </div>

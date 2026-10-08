@@ -16,7 +16,13 @@ interface HomePageProps {
 }
 
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
-  const { universities, counsellors, counsellorsExpansionNote, pagesContent } = useSiteData();
+  const {
+    universities,
+    counsellors,
+    counsellorsExpansionNote,
+    pagesContent,
+    officialStudentCount,
+  } = useSiteData();
   const pageCopy = pagesContent.home || {
     heroEyebrow: 'UNDERGRADUATE ADMISSIONS · CLASS 8–12',
     heroHeadline: 'THE JOURNEY TO A GREAT UNIVERSITY STARTS LONG BEFORE THE APPLICATION.',
@@ -193,7 +199,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               <div className="lg:col-span-5">
                 <div className="flex items-baseline gap-4">
                   <span className="font-serif text-4xl font-normal text-[#C4A56A] tabular-nums sm:text-5xl">
-                    133+
+                    {officialStudentCount}+
                   </span>
                   <span className="text-[14px] font-semibold tracking-[0.16em] text-[#FFFFFF] uppercase">
                     ADMISSIONS
@@ -241,7 +247,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               MASTERED UNIVERSITY ADMISSIONS.
             </h2>
             <p className="mt-3 font-serif text-[22px] italic text-[#0D2947] md:text-[26px]">
-              133+ admissions across leading universities worldwide.
+              {officialStudentCount}+ admissions across leading universities worldwide.
             </p>
             <p className="mt-4 text-[16px] leading-relaxed text-[#1C2630]/80">
               Our students have secured admissions across leading universities across multiple
@@ -282,7 +288,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               onClick={() => onNavigate('/results')}
               className="inline-flex items-center gap-2 text-[13px] font-semibold tracking-[0.08em] text-[#071A33] uppercase underline decoration-[#C4A56A] underline-offset-8 hover:text-[#164A78]"
             >
-              <span>EXPLORE ALL 133+ ADMISSIONS</span>
+              <span>EXPLORE ALL {officialStudentCount}+ ADMISSIONS</span>
               <ArrowRight className="h-4 w-4" />
             </button>
           </div>
@@ -744,7 +750,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 REAL STUDENTS. REAL JOURNEYS. REAL UNIVERSITIES.
               </h2>
               <p className="mt-3 text-[16px] text-[#1C2630]/80">
-                133+ admissions across leading universities worldwide.
+                {officialStudentCount}+ admissions across leading universities worldwide.
               </p>
             </div>
 

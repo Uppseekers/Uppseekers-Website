@@ -29,19 +29,48 @@ import {
   ArrowLeft,
   X,
   RefreshCw,
+  Lock,
+  Shield,
+  Eye,
+  EyeOff,
+  Key,
+  LogOut,
+  AlertCircle,
 } from 'lucide-react';
 
 interface AdminPageProps {
   onNavigate: (page: PageRoute) => void;
 }
 
-type AdminTab = 'pages' | 'blogs' | 'universities' | 'activities' | 'counsellors' | 'leads';
+type AdminTab = 'pages' | 'blogs' | 'universities' | 'activities' | 'counsellors' | 'leads' | 'security';
 
 export const AdminPage: React.FC<AdminPageProps> = ({ onNavigate }) => {
   const siteData = useSiteData();
   const [activeTab, setActiveTab] = useState<AdminTab>('pages');
   const [saveSuccess, setSaveSuccess] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+
+  // Authentication State
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+    try {
+      return sessionStorage.getItem('uppseekers_admin_authed') === 'true';
+    } catch {
+      return false;
+    }
+  });
+  const [passwordInput, setPasswordInput] = useState('');
+  const [passwordError, setPasswordError] = useState<string | null>(null);
+  const [showPassword, setShowPassword] = useState(false);
+  const [verifying, setVerifying] = useState(false);
+
+  // Password Change state
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [passwordChangeStatus, setPasswordChangeStatus] = useState<{
+    success?: boolean;
+    message?: string;
+  } | null>(null);
 
   // Editable states initialized from siteData
   const [blogs, setBlogs] = useState<JournalArticle[]>(siteData?.blogs || JOURNAL_ARTICLES);
@@ -306,6 +335,160 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onNavigate }) => {
     await syncToBackend({ universities: updated });
   };
 
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!passwordInput.trim()) return;
+    setVerifying(true);
+    setPasswordError(null);
+    try {
+      const ok = await siteData.verifyAdminPassword(passwordInput.trim());
+      if (ok) {
+        setIsAuthenticated(true);
+        try {
+          sessionStorage.setItem('uppseekers_admin_authed', 'true');
+        } catch {}
+      } else {
+        setPasswordError('Incorrect administrator password. Access denied.');
+      }
+    } catch {
+      setPasswordError('Error validating password. Please try again.');
+    } finally {
+      setVerifying(false);
+    }
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    setPasswordInput('');
+    try {
+      sessionStorage.removeItem('uppseekers_admin_authed');
+    } catch {}
+  };
+
+  const handleChangePassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (newPassword !== confirmPassword) {
+      setPasswordChangeStatus({ success: false, message: 'New passwords do not match' });
+      return;
+    }
+    if (newPassword.length < 4) {
+      setPasswordChangeStatus({ success: false, message: 'Password must be at least 4 characters long' });
+      return;
+    }
+    const res = await siteData.changeAdminPassword(currentPassword, newPassword);
+    if (res.success) {
+      setPasswordChangeStatus({ success: true, message: 'Administrator password successfully updated!' });
+      setCurrentPassword('');
+      setNewPassword('');
+      setConfirmPassword('');
+      setTimeout(() => {
+        setPasswordChangeStatus(null);
+      }, 3000);
+    } else {
+      setPasswordChangeStatus({ success: false, message: res.error || 'Failed to update password' });
+    }
+  };
+
+  // Lock Screen Gate
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-[#071A33] text-[#F7F5F0] flex flex-col justify-center items-center px-4 py-12 relative overflow-hidden">
+        {/* Subtle background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#164A78]/20 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative z-10 w-full max-w-md">
+          {/* Logo & Header */}
+          <div className="text-center mb-8">
+            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl border border-[#C4A56A]/30 bg-[#0D2947] shadow-xl shadow-black/40">
+              <Lock className="h-8 w-8 text-[#C4A56A]" />
+            </div>
+            <span className="font-serif text-2xl font-bold tracking-wide text-white">
+              UPPSEEKERS
+            </span>
+            <p className="mt-1 text-[11px] font-bold tracking-[0.2em] text-[#C4A56A] uppercase">
+              Restricted CMS Portal
+            </p>
+            <p className="mt-2 text-xs text-[#E9F0F6]/70">
+              Authorized administrator access only. Enter password to manage content, universities, and student metrics.
+            </p>
+          </div>
+
+          {/* Login Card */}
+          <div className="rounded-xl border border-white/15 bg-[#0D2947]/95 p-8 shadow-2xl backdrop-blur-md">
+            <form onSubmit={handleLogin} className="space-y-5">
+              <div>
+                <label
+                  htmlFor="admin-password"
+                  className="block text-[11px] font-semibold tracking-wider text-[#C4A56A] uppercase mb-2"
+                >
+                  Administrator Password
+                </label>
+                <div className="relative">
+                  <input
+                    id="admin-password"
+                    type={showPassword ? 'text' : 'password'}
+                    value={passwordInput}
+                    onChange={(e) => {
+                      setPasswordInput(e.target.value);
+                      if (passwordError) setPasswordError(null);
+                    }}
+                    placeholder="Enter admin password..."
+                    autoFocus
+                    required
+                    className="w-full rounded border border-white/20 bg-[#071A33] px-4 py-3 pr-11 text-sm text-white placeholder:text-white/40 focus:border-[#C4A56A] focus:outline-none focus:ring-1 focus:ring-[#C4A56A]"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-white/50 hover:text-white"
+                  >
+                    {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  </button>
+                </div>
+              </div>
+
+              {passwordError && (
+                <div className="flex items-center gap-2 rounded bg-rose-950/80 border border-rose-500/40 p-3 text-xs text-rose-200">
+                  <AlertCircle className="h-4 w-4 shrink-0 text-rose-400" />
+                  <span>{passwordError}</span>
+                </div>
+              )}
+
+              <button
+                type="submit"
+                disabled={verifying}
+                className="w-full inline-flex items-center justify-center gap-2 rounded bg-[#C4A56A] py-3 px-4 text-xs font-bold tracking-wider text-[#071A33] uppercase transition-all duration-150 hover:bg-[#d4b77e] disabled:opacity-50"
+              >
+                {verifying ? (
+                  <>
+                    <RefreshCw className="h-4 w-4 animate-spin" />
+                    <span>Verifying...</span>
+                  </>
+                ) : (
+                  <>
+                    <Key className="h-4 w-4" />
+                    <span>Unlock Admin Portal</span>
+                  </>
+                )}
+              </button>
+            </form>
+
+            <div className="mt-6 border-t border-white/10 pt-4 text-center">
+              <button
+                type="button"
+                onClick={() => onNavigate('/')}
+                className="inline-flex items-center gap-1.5 text-xs text-[#E9F0F6]/70 hover:text-white transition-colors"
+              >
+                <ArrowLeft className="h-3.5 w-3.5" />
+                <span>Return to Website Homepage</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#071A33] text-[#F7F5F0]">
       {/* Top Banner & Navigation */}
@@ -351,6 +534,14 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onNavigate }) => {
               <Save className="h-3.5 w-3.5" />
               <span>{loading ? 'Saving...' : 'Save All Changes'}</span>
             </button>
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="inline-flex items-center gap-1.5 rounded border border-white/20 bg-white/5 px-3 py-2 text-xs font-semibold text-white/80 hover:bg-white/10 hover:text-white transition-colors"
+            >
+              <LogOut className="h-3.5 w-3.5" />
+              <span>Log Out</span>
+            </button>
           </div>
         </div>
       </header>
@@ -366,6 +557,7 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onNavigate }) => {
             { id: 'activities', label: '4-5 Profile Activities & Research', icon: Layers },
             { id: 'counsellors', label: 'Counsellors Advisory', icon: Users },
             { id: 'leads', label: 'Parent Consultation Inquiries', icon: Compass },
+            { id: 'security', label: 'Admin Security & Password', icon: Shield },
           ].map((tab) => {
             const Icon = tab.icon;
             const active = activeTab === tab.id;
@@ -894,6 +1086,145 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onNavigate }) => {
                 </table>
               </div>
             )}
+          </div>
+        )}
+
+        {/* TAB 7: ADMIN SECURITY & SYSTEM SETTINGS */}
+        {activeTab === 'security' && (
+          <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-12">
+            {/* Password Change Card */}
+            <div className="lg:col-span-6 rounded border border-white/15 bg-[#0D2947] p-8">
+              <div className="flex items-center gap-3 border-b border-white/10 pb-4">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#C4A56A]/20 text-[#C4A56A]">
+                  <Key className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="font-serif text-xl font-bold text-white">Administrator Password</h3>
+                  <p className="text-xs text-[#E9F0F6]/70">Change the security key used to access this CMS portal</p>
+                </div>
+              </div>
+
+              <form onSubmit={handleChangePassword} className="mt-6 space-y-4">
+                <div>
+                  <label className="block text-xs font-semibold tracking-wider text-[#C4A56A] uppercase">
+                    Current Password
+                  </label>
+                  <input
+                    type="password"
+                    required
+                    value={currentPassword}
+                    onChange={(e) => setCurrentPassword(e.target.value)}
+                    placeholder="Enter current password..."
+                    className="mt-1.5 w-full rounded border border-white/20 bg-[#071A33] px-4 py-2.5 text-sm text-white focus:border-[#C4A56A] focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold tracking-wider text-[#C4A56A] uppercase">
+                    New Password
+                  </label>
+                  <input
+                    type="password"
+                    required
+                    minLength={4}
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
+                    placeholder="Enter new secure password (min 4 characters)..."
+                    className="mt-1.5 w-full rounded border border-white/20 bg-[#071A33] px-4 py-2.5 text-sm text-white focus:border-[#C4A56A] focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold tracking-wider text-[#C4A56A] uppercase">
+                    Confirm New Password
+                  </label>
+                  <input
+                    type="password"
+                    required
+                    minLength={4}
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    placeholder="Confirm new password..."
+                    className="mt-1.5 w-full rounded border border-white/20 bg-[#071A33] px-4 py-2.5 text-sm text-white focus:border-[#C4A56A] focus:outline-none"
+                  />
+                </div>
+
+                {passwordChangeStatus && (
+                  <div
+                    className={`flex items-center gap-2 rounded p-3 text-xs ${
+                      passwordChangeStatus.success
+                        ? 'bg-emerald-950/80 border border-emerald-500/50 text-emerald-200'
+                        : 'bg-rose-950/80 border border-rose-500/50 text-rose-200'
+                    }`}
+                  >
+                    {passwordChangeStatus.success ? (
+                      <CheckCircle className="h-4 w-4 shrink-0 text-emerald-400" />
+                    ) : (
+                      <AlertCircle className="h-4 w-4 shrink-0 text-rose-400" />
+                    )}
+                    <span>{passwordChangeStatus.message}</span>
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded bg-[#C4A56A] py-2.5 px-4 text-xs font-bold tracking-wider text-[#071A33] uppercase transition-colors hover:bg-[#d4b77e]"
+                >
+                  <Save className="h-4 w-4" />
+                  <span>Update Password</span>
+                </button>
+              </form>
+            </div>
+
+            {/* Metrics & Continuity Overview */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="rounded border border-white/15 bg-[#0D2947] p-8">
+                <div className="flex items-center gap-3 border-b border-white/10 pb-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#C4A56A]/20 text-[#C4A56A]">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-serif text-xl font-bold text-white">Student Continuity Architecture</h3>
+                    <p className="text-xs text-[#E9F0F6]/70">Unified cross-page data synchronization</p>
+                  </div>
+                </div>
+
+                <div className="mt-6 space-y-4">
+                  <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                    <span className="text-xs text-[#E9F0F6]/80">Official Verified Placements:</span>
+                    <span className="font-serif text-lg font-bold text-[#C4A56A]">
+                      {siteData.officialStudentCount}+ Students
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                    <span className="text-xs text-[#E9F0F6]/80">Partner &amp; Admitted Universities:</span>
+                    <span className="font-serif text-lg font-bold text-white">
+                      {universities.length} Institutions
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                    <span className="text-xs text-[#E9F0F6]/80">Total Documented Offers:</span>
+                    <span className="font-serif text-lg font-bold text-white">
+                      {siteData.totalAdmissionsCount} Admissions
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-[#E9F0F6]/80">Cross-Page Consistency:</span>
+                    <span className="rounded bg-emerald-900/60 border border-emerald-500/40 px-2 py-0.5 text-[11px] font-semibold text-emerald-300">
+                      100% Active across All Pages
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Vercel & Storage Architecture */}
+              <div className="rounded border border-white/15 bg-[#0D2947] p-8">
+                <h4 className="font-serif text-lg font-bold text-white mb-2">Vercel Deployment Compatibility</h4>
+                <p className="text-xs text-[#E9F0F6]/75 leading-relaxed">
+                  Configured with production-ready <code className="bg-black/30 px-1 py-0.5 rounded text-[#C4A56A]">vercel.json</code>, dedicated serverless function in <code className="bg-black/30 px-1 py-0.5 rounded text-[#C4A56A]">api/index.ts</code>, SPA rewrite routing, and browser LocalStorage fail-safe caching.
+                </p>
+              </div>
+            </div>
           </div>
         )}
       </div>

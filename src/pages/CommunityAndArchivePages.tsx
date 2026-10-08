@@ -10,6 +10,7 @@ import {
   JournalCategory,
   JournalArticle,
   IMAGES,
+  OFFICIAL_ADMISSIONS_COUNT,
 } from '../data/uppseekersData';
 import { useSiteData } from '../context/SiteDataContext';
 import { EditorialImage, FinalCTA, LeadForm } from '../components/SharedComponents';
@@ -1217,7 +1218,7 @@ export const AboutPage: React.FC<PageProps> = ({ onNavigate }) => {
               },
               {
                 label: 'Student Outcomes',
-                sub: '133+ Verified Global Admissions',
+                sub: `${OFFICIAL_ADMISSIONS_COUNT}+ Verified Global Admissions`,
                 path: '/results' as PageRoute,
               },
             ].map((link) => (
@@ -1545,7 +1546,7 @@ export const ContactPage: React.FC<PageProps> = ({ initialCountryFilter }) => {
                   understanding the student.&rdquo;
                 </p>
                 <p className="mt-4 text-[13px] text-[#E9F0F6]/75">
-                  133+ verified admissions across leading international universities.
+                  {OFFICIAL_ADMISSIONS_COUNT}+ verified admissions across leading international universities.
                 </p>
               </div>
             </div>

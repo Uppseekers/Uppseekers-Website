@@ -26,11 +26,11 @@ export type DestinationCountry =
   | 'Europe';
 
 export const IMAGES = {
-  heroQuad: '/src/assets/images/hero_university_quad_1791135392677.jpg',
-  counsellingSession: '/src/assets/images/counselling_advisory_session_1791135407335.jpg',
-  researchLab: '/src/assets/images/student_research_laboratory_1791135419131.jpg',
-  campusLibrary: '/src/assets/images/campus_library_reading_room_1791135430096.jpg',
-  counsellorPortrait: '/src/assets/images/counsellor_portrait_editorial_1791135441983.jpg',
+  heroQuad: '/assets/images/hero_university_quad_1791135392677.jpg',
+  counsellingSession: '/assets/images/counselling_advisory_session_1791135407335.jpg',
+  researchLab: '/assets/images/student_research_laboratory_1791135419131.jpg',
+  campusLibrary: '/assets/images/campus_library_reading_room_1791135430096.jpg',
+  counsellorPortrait: '/assets/images/counsellor_portrait_editorial_1791135441983.jpg',
 };
 
 export interface PageSEO {

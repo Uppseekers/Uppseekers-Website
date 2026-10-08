@@ -435,6 +435,62 @@ export const SiteDataProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     return syncAllToBackend({ leads: updated });
   };
 
+  const totalAdmissionsCount = universities.reduce(
+    (sum, u) => sum + (Number(u.admissionsCount) || 1),
+    0
+  );
+  const officialStudentCount = 147;
+
+  const verifyAdminPassword = async (password: string): Promise<boolean> => {
+    try {
+      const res = await fetch('/api/admin/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        return Boolean(data.success);
+      }
+    } catch {
+      // offline fallback
+    }
+    const saved = localStorage.getItem('uppseekers_admin_pass') || 'uppseekers2026';
+    return password === saved;
+  };
+
+  const changeAdminPassword = async (
+    currentPassword: string,
+    newPassword: string
+  ): Promise<{ success: boolean; error?: string }> => {
+    if (!newPassword || newPassword.trim().length < 4) {
+      return { success: false, error: 'Password must be at least 4 characters long' };
+    }
+    try {
+      const res = await fetch('/api/admin/change-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ currentPassword, newPassword }),
+      });
+      if (res.ok) {
+        localStorage.setItem('uppseekers_admin_pass', newPassword.trim());
+        return { success: true };
+      }
+      const data = await res.json().catch(() => ({}));
+      if (data.error) {
+        return { success: false, error: data.error };
+      }
+    } catch {
+      // offline fallback
+    }
+    const saved = localStorage.getItem('uppseekers_admin_pass') || 'uppseekers2026';
+    if (currentPassword !== saved) {
+      return { success: false, error: 'Current password is incorrect' };
+    }
+    localStorage.setItem('uppseekers_admin_pass', newPassword.trim());
+    return { success: true };
+  };
+
   const resetToDefaults = async (): Promise<boolean> => {
     localStorage.removeItem(STORAGE_KEY);
     setUniversities(ADMITTED_UNIVERSITIES);
@@ -457,6 +513,8 @@ export const SiteDataProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     <SiteDataContext.Provider
       value={{
         universities,
+        totalAdmissionsCount,
+        officialStudentCount,
         profileActivities,
         researchTopics,
         counsellors,
@@ -476,6 +534,8 @@ export const SiteDataProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         submitLead,
         resetToDefaults,
         syncAllToBackend,
+        verifyAdminPassword,
+        changeAdminPassword,
       }}
     >
       {children}
